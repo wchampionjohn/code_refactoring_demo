@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+CHILDRENS	./lib/movie.rb	/^  CHILDRENS = 2$/;"	C	class:Movie
+Customer	./lib/customer.rb	/^class Customer$/;"	c
+Movie	./lib/movie.rb	/^class Movie$/;"	c
+NEW_RELEASE	./lib/movie.rb	/^  NEW_RELEASE = 1$/;"	C	class:Movie
+REGULAR	./lib/movie.rb	/^  REGULAR = 0$/;"	C	class:Movie
+Rental	./lib/rental.rb	/^class Rental$/;"	c
+TestCustomer	./spec/customer_spec.rb	/^class TestCustomer < Minitest::Test$/;"	c	inherits:Minitest.Test
+TestMovie	./spec/movie_spec.rb	/^class TestMovie < Minitest::Test$/;"	c	inherits:Minitest.Test
+TestRental	./spec/rental_spec.rb	/^class TestRental < Minitest::Test$/;"	c	inherits:Minitest.Test
+add_rental	./lib/customer.rb	/^  def add_rental(arg)$/;"	f	class:Customer
+days_rented	./lib/rental.rb	/^  attr_reader :movie, :days_rented$/;"	f	class:Rental
+initialize	./lib/customer.rb	/^  def initialize(name)$/;"	f	class:Customer
+initialize	./lib/movie.rb	/^  def initialize(title, price_code)$/;"	f	class:Movie
+initialize	./lib/rental.rb	/^  def initialize(movie, days_rented)$/;"	f	class:Rental
+movie	./lib/rental.rb	/^  attr_reader :movie, :days_rented$/;"	f	class:Rental
+name	./lib/customer.rb	/^  attr_reader :name$/;"	f	class:Customer
+price_code	./lib/movie.rb	/^  attr_accessor :price_code$/;"	f	class:Movie
+price_code=	./lib/movie.rb	/^  attr_accessor :price_code$/;"	f	class:Movie
+statement	./lib/customer.rb	/^  def statement$/;"	f	class:Customer
+test_new_release_movie	./spec/movie_spec.rb	/^  def test_new_release_movie$/;"	f	class:TestMovie
+test_rent_a_movie	./spec/customer_spec.rb	/^  def test_rent_a_movie$/;"	f	class:TestCustomer
+test_rental	./spec/rental_spec.rb	/^  def test_rental$/;"	f	class:TestRental
+title	./lib/movie.rb	/^  attr_reader :title$/;"	f	class:Movie
