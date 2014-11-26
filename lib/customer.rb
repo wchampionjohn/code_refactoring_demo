@@ -2,8 +2,8 @@ class Customer
   attr_reader :name
 
   def initialize(name)
-    @name = name
-    @rentals = []
+    @name    = name  # 姓名
+    @rentals = []    # 租借紀錄
   end
 
   def add_rental(arg)
@@ -11,12 +11,12 @@ class Customer
   end
 
   def statement
-    total_amount, frequent_renter_points = 0, 0
+    total_amount = 0            # 總消費金額
+    frequent_renter_points = 0  # 常客積點
     result = "Rental Record for #{@name}\n"
 
     @rentals.each do |element|
       this_amount = 0
-
       # determine amounts for each line
       case element.movie.price_code
       when Movie::REGULAR
@@ -29,19 +29,19 @@ class Customer
         this_amount += (element.days_rented - 3) * 1.5 if element.days_rented > 3
       end
 
-      # add frequent renter points
+      # 累加常客積點
       frequent_renter_points += 1
-      # add bonus for a two day new release rental
+      # 如果是新片而且租超過 1 天，另外加 1 點
       if element.movie.price_code == Movie::NEW_RELEASE && element.days_rented > 1
         frequent_renter_points += 1
       end
 
-      # show figures for this rental
+      # 顯示此筆租借資料
       result += "\t" + element.movie.title + "\t" + this_amount.to_s + "\n"
       total_amount += this_amount
     end
 
-    # add footer lines
+    # 結尾列印
     result += "Amount owed is #{total_amount}\n"
     result += "You earned #{frequent_renter_points} frequent renter points"
     result
