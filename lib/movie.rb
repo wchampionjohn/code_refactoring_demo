@@ -1,4 +1,11 @@
+module DefaultPrice
+  def frequent_renter_points(days_rented)
+    1
+  end
+end
+
 class RegularPrice
+  include DefaultPrice
   def charge(days_rented)
     result = 2
     result += (days_rented - 2) * 1.5 if days_rented > 2
@@ -6,6 +13,11 @@ class RegularPrice
 end
 
 class NewReleasePrice
+  def frequent_renter_points(days_rented)
+    # 如果租超過 1 天，另外加 1 點
+    (days_rented > 1) ? 2 : 1
+  end
+
   def charge(days_rented)
     result = 0
     result += days_rented * 3
@@ -13,6 +25,8 @@ class NewReleasePrice
 end
 
 class ChildrensPrice
+  include DefaultPrice
+
   def charge(days_rented)
     result = 1.5
     result += (days_rented - 3) * 1.5 if days_rented > 3
@@ -48,9 +62,7 @@ class Movie
   end
 
   def frequent_renter_points(days_rented)
-    # 如果是新片而且租超過 1 天，另外加 1 點
-    (price_code == Movie::NEW_RELEASE && days_rented > 1) ? 2 : 1
+    @price.frequent_renter_points(days_rented)
   end
-
 end
 
