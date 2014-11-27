@@ -16,7 +16,6 @@ class Customer
     result = "Rental Record for #{@name}\n"
 
     @rentals.each do |rental|
-      # 累加常客積點
       frequent_renter_points += rental.frequent_renter_points
 
       # 顯示此筆租借資料
@@ -25,8 +24,13 @@ class Customer
     end
 
     # 結尾列印
-    result += "Amount owed is #{total_amount}\n"
+    result += "Amount owed is #{total_charge}\n"
     result += "You earned #{frequent_renter_points} frequent renter points"
     result
+  end
+
+  private
+  def total_charge
+    @rentals.inject(0) { |sum, rental| sum + rental.charge }
   end
 end
