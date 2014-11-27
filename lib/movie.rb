@@ -1,39 +1,7 @@
-module DefaultPrice
-  def frequent_renter_points(days_rented)
-    1
-  end
-end
-
-class RegularPrice
-  include DefaultPrice
-  def charge(days_rented)
-    result = 2
-    result += (days_rented - 2) * 1.5 if days_rented > 2
-  end
-end
-
-class NewReleasePrice
-  def frequent_renter_points(days_rented)
-    # 如果租超過 1 天，另外加 1 點
-    (days_rented > 1) ? 2 : 1
-  end
-
-  def charge(days_rented)
-    result = 0
-    result += days_rented * 3
-  end
-end
-
-class ChildrensPrice
-  include DefaultPrice
-
-  def charge(days_rented)
-    result = 1.5
-    result += (days_rented - 3) * 1.5 if days_rented > 3
-  end
-end
-
-# --------------------------------
+require "price/default_price"
+require "price/regular_price"
+require "price/childrens_price"
+require "price/new_release_price"
 
 class Movie
   REGULAR     = 0     # 普通片
