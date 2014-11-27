@@ -16,7 +16,6 @@ class Customer
     result = "Rental Record for #{@name}\n"
 
     @rentals.each do |rental|
-      this_amount = amout_for(rental)
 
       # 累加常客積點
       frequent_renter_points += 1
@@ -26,8 +25,8 @@ class Customer
       end
 
       # 顯示此筆租借資料
-      result += "\t" + rental.movie.title + "\t" + this_amount.to_s + "\n"
-      total_amount += this_amount
+      result += "\t" + rental.movie.title + "\t" + rental.charge.to_s + "\n"
+      total_amount += rental.charge
     end
 
     # 結尾列印
@@ -36,8 +35,4 @@ class Customer
     result
   end
 
-  private
-  def amout_for(rental)
-    rental.charge
-  end
 end
