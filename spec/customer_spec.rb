@@ -1,5 +1,7 @@
 require "minitest/autorun"
+require "minitest/reporters"
 require "customer.rb"
+Minitest::Reporters.use!
 
 class TestCustomer < Minitest::Test
 

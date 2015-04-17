@@ -1,5 +1,7 @@
 require "minitest/autorun"
+require "minitest/reporters"
 require "movie.rb"
+Minitest::Reporters.use!
 
 class TestMovie < Minitest::Test
 
